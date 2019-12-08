@@ -1,10 +1,14 @@
 import React from 'react';
+import InfoBox from './components/lineChart/infoBox';
+import ToolTip from './components/lineChart/toolTip';
+import LineChart from './components/lineChart/lineChart';
+import LineIndex from './components/lineChart';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>D3 react app</h1>
+    <div className="container">
+        <LineIndex/>
     </div>
   );
 }
