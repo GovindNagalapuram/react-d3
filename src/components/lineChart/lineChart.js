@@ -11,6 +11,9 @@
 
 import React, { Component } from 'react';
 
+import '../../assets/lineChart/lineChart.css';
+
+
 const LineChart = () => {
     return (
         <h1>this is line-chart container.</h1>

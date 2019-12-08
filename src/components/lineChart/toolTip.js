@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../../assets/lineChart/toolTip.css';
 
 const ToolTip = () => {
     return (

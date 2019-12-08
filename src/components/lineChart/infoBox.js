@@ -12,6 +12,7 @@
 // }
 
 import React, { Component } from 'react';
+import '../../assets/lineChart/infoBox.css';
 
 const InfoBox = () => {
     return (
