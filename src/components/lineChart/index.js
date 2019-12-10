@@ -16,13 +16,11 @@ const LineIndex = () => {
     const[increment, setIncrement] = useState(1);
     const[end, setEnd] = useState(4)
 
-
-
-
     useEffect(() => {
         getData()
     }, [])
 
+    // repeat the loop on increment number.
     const calculation = () => {
          if (add === true && value <= end) {
             setValue(value => value + increment)
@@ -49,6 +47,7 @@ const LineIndex = () => {
             for (let date in bitcoinData.bpi){
               sortedData.push({
                 // d: Moment(date).format('MMM/DD'),
+                d: date,
                 p: bitcoinData.bpi[date].toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }),
                 x: count, //previous days
                 y: bitcoinData.bpi[date] // numerical price
@@ -61,7 +60,12 @@ const LineIndex = () => {
           .catch((e) => {
             console.log(e);
           });
-      }
+    }
+
+    const handleChartHover = (hoverLoc, activePoint) => {
+      setHoverLoc(hoverLoc)
+      SetActivePoint(activePoint)
+    }
 
     return(
         <div className="index-container">
@@ -72,12 +76,23 @@ const LineIndex = () => {
                     <InfoBox data={data} />
                 : null 
             }
-            <LineChart
-                
-            />
-            <ToolTip
-            
-            />
+            {
+                !fetchingData ?
+                  <LineChart
+                      data={data}
+                      onChartHover = {(a,b) => handleChartHover(a,b)}
+                  />
+                : null
+            }
+            {
+              hoverLoc ? 
+                <ToolTip
+                  hoverLoc={hoverLoc}
+                  activePoint={activePoint}
+                />
+                :
+              null
+            }
         </div>
     )
 }

@@ -48,7 +48,7 @@ const InfoBox = (props) => {
 
     return (
         <div>
-            <h1>this is info box container.</h1>
+            {/* <h1>this is info box container.</h1> */}
             {currentPrice}
             {monthChangeD}
             {monthChangeP}
