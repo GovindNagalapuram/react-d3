@@ -11,8 +11,8 @@
 //   }
 // }
 
-import React, { Component, useState, useEffect } from 'react';
-import Moment from 'react-moment';
+import React, { useState, useEffect } from 'react';
+// import Moment from 'react-moment';
 import '../../assets/lineChart/infoBox.css';
 
 const InfoBox = (props) => {

@@ -9,7 +9,7 @@
 // this.makeActivePoint()  When Hovered Finds Closest Point
 // this.stopHover()        Clears Line and Point When Hover Stops
 
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import '../../assets/lineChart/lineChart.css';
 
 
@@ -34,6 +34,7 @@ const LineChart = (props) => {
             max: data.reduce((max, p) => p.y > max ? p.y : max, data[0].y)
         }
     }
+    
     // GET SVG COORDINATES
     const getSvgX = (x) =>  {
         const {svgWidth, yLabelSize} = props;
@@ -159,6 +160,7 @@ const LineChart = (props) => {
                 d: point.d,
                 p: point.p
             });
+            return console.log("works");
         });
 
         let closestPoint = {};

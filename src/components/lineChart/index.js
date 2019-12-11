@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import Moment from 'react-moment';
+import React, { useState, useEffect } from 'react';
+// import moment from 'react-moment';
 import LineChart from './lineChart';
 import ToolTip from './toolTip';
 import InfoBox from './infoBox';
@@ -11,10 +11,10 @@ const LineIndex = () => {
     const [ hoverLoc, setHoverLoc ] = useState(null);
     const [ activePoint, SetActivePoint ] = useState(null);
 
-    const[add, setAdd] = useState(true);
-    const[value, setValue] = useState(0);
-    const[increment, setIncrement] = useState(1);
-    const[end, setEnd] = useState(4)
+    // const[add, setAdd] = useState(true);
+    // const[value, setValue] = useState(0);
+    // const[increment, setIncrement] = useState(1);
+    // const[end, setEnd] = useState(4)
 
     useEffect(() => {
         getData()
@@ -22,21 +22,21 @@ const LineIndex = () => {
     
 
     // repeat the loop on increment number.
-    const calculation = () => {
-         if (add === true && value <= end) {
-            setValue(value => value + increment)
-            if (value === end) {
-                setAdd(false)
-            }
-         }
-         else {
-            setAdd(false)
-            setValue(value => value - increment)
-            if (value === 1) {
-                setAdd(true)
-            }
-        }
-      }
+    // const calculation = () => {
+    //      if (add === true && value <= end) {
+    //         setValue(value => value + increment)
+    //         if (value === end) {
+    //             setAdd(false)
+    //         }
+    //      }
+    //      else {
+    //         setAdd(false)
+    //         setValue(value => value - increment)
+    //         if (value === 1) {
+    //             setAdd(true)
+    //         }
+    //     }
+    // }
 
     const getData = () => {
         const url = 'https://api.coindesk.com/v1/bpi/historical/close.json';

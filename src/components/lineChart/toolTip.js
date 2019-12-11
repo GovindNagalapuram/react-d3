@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import '../../assets/lineChart/toolTip.css';
 
 const ToolTip = (props) => {
 
-    console.log(props)
+    // console.log(props)
 
     const {hoverLoc, activePoint} = props;
 
