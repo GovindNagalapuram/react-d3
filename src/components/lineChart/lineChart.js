@@ -10,7 +10,6 @@
 // this.stopHover()        Clears Line and Point When Hover Stops
 
 import React, { Component, useState } from 'react';
-
 import '../../assets/lineChart/lineChart.css';
 
 
@@ -192,8 +191,8 @@ const LineChart = (props) => {
             height={props.svgHeight}
             color={props.color}
             className={'linechart'}
-            onMouseLeave={ () => stopHover() }
-            onMouseMove={ (e) => getCoords(e) }
+            onMouseLeave={() => stopHover()}
+            onMouseMove={(e) => getCoords(e)}
         >
             <g>
                 {makeAxis()}

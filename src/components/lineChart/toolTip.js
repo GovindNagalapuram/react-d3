@@ -6,6 +6,9 @@ const ToolTip = (props) => {
     console.log(props)
 
     const {hoverLoc, activePoint} = props;
+
+    // The getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
+    // getBoundingClientRect() takes four values left, top, width, height
     const svgLocation = document.getElementsByClassName("linechart")[0].getBoundingClientRect();
   
     let placementStyles = {};

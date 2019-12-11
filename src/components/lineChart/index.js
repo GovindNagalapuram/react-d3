@@ -19,6 +19,7 @@ const LineIndex = () => {
     useEffect(() => {
         getData()
     }, [])
+    
 
     // repeat the loop on increment number.
     const calculation = () => {
@@ -68,8 +69,8 @@ const LineIndex = () => {
     }
 
     return(
-        <div className="index-container">
-            <div onClick={calculation}>{value}</div>
+        <div className="index-container" style={{textAlign: 'center'}}>
+            {/* <div onClick={calculation}>{value}</div> */}
             <h1>Bitcoin price chart for 30 days</h1>
             { 
                 !fetchingData?

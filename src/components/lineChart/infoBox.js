@@ -12,6 +12,7 @@
 // }
 
 import React, { Component, useState, useEffect } from 'react';
+import Moment from 'react-moment';
 import '../../assets/lineChart/infoBox.css';
 
 const InfoBox = (props) => {
@@ -24,6 +25,10 @@ const InfoBox = (props) => {
     // console.log(data);
     useEffect(() => {
         getData()
+        const refresh = setInterval(getData(), 2000);
+        return () => {
+          clearInterval(refresh);
+        }
     }, [])
 
     const getData = () => {
@@ -40,6 +45,7 @@ const InfoBox = (props) => {
             setMonthChangeD(change.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' }))
             setMonthChangeP(changeP.toFixed(2) + '%')
             setUpdatedAt(bitcoinData.time.updated)
+            console.log('changes')
           })
           .catch((e) => {
             console.log(e);
@@ -47,12 +53,26 @@ const InfoBox = (props) => {
       }
 
     return (
-        <div>
-            {/* <h1>this is info box container.</h1> */}
-            {currentPrice}
-            {monthChangeD}
-            {monthChangeP}
-            {updatedAt}
+          <div id="data-container">
+          { currentPrice ?
+            <div id="left" className='box'>
+              <div className="heading">{currentPrice.toLocaleString('us-EN',{ style: 'currency', currency: 'USD' })}</div>
+              {/* <div className="subtext">{'Updated ' + Moment(updatedAt ).fromNow()}</div> */}
+            </div>
+          : null
+          }
+          { currentPrice ?
+            <div id="middle" className='box'>
+              <div className="heading">{monthChangeD}</div>
+              <div className="subtext">Change Since Last Month (USD)</div>
+            </div>
+          : null
+          }
+            <div id="right" className='box'>
+              <div className="heading">{monthChangeP}</div>
+              <div className="subtext">Change Since Last Month (%)</div>
+            </div>
+
         </div>
 
     )
